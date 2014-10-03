@@ -62,7 +62,7 @@ sub squid_get_constants {
     $output .= "acl localhost src 127.0.0.1/32\n";
     $output .= "acl to_localhost dst 127.0.0.0/8\n";
     $output .= "acl net src all\n";
-    $output .= "acl SSL_ports port 443\n";
+    $output .= "acl SSL_ports port 443 873\n";
     $output .= "acl Safe_ports port 80          # http\n";
     $output .= "acl Safe_ports port 21          # ftp\n";
     $output .= "acl Safe_ports port 443         # https\n";
@@ -73,6 +73,7 @@ sub squid_get_constants {
     $output .= "acl Safe_ports port 488         # gss-http\n";
     $output .= "acl Safe_ports port 591         # filemaker\n";
     $output .= "acl Safe_ports port 777         # multiling http\n";
+    $output .= "acl Safe_ports port 873         # rsync\n"
     $output .= "acl CONNECT method CONNECT\n\n";
     
     touch($squid_log);
